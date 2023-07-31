@@ -5,6 +5,7 @@ import BpjsLogo from "@/assets/img/experiences/ic-bpjs.svg";
 
 export const experienceDatas = [
   {
+    id: 0,
     company: "BPJS Ketenagakerjaan",
     role: "Front-End Developer",
     icon: BpjsLogo,
@@ -19,6 +20,7 @@ export const experienceDatas = [
     ],
   },
   {
+    id: 1,
     company: "Soluvas",
     role: "Front-End Developer",
     icon: SoluvasIcon,
@@ -33,6 +35,7 @@ export const experienceDatas = [
     ],
   },
   {
+    id: 2,
     company: "Sagara Technology",
     role: "Front-End Engineer",
     icon: SagaraIcon,
@@ -46,6 +49,7 @@ export const experienceDatas = [
     ],
   },
   {
+    id: 3,
     company: "Magprotech",
     role: "Embedded System Engineer",
     icon: MagprotechIcon,
