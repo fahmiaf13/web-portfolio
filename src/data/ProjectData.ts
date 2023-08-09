@@ -9,6 +9,7 @@ import StampProject from "@/assets/img/project/stamp-project.png";
 
 export const ProjectCardsData = [
   {
+    id: 0,
     name: "Ommar",
     img: OmmarProject,
     icon: OmmarLogo,
@@ -17,6 +18,7 @@ export const ProjectCardsData = [
     link: "https://staging.ommar.net",
   },
   {
+    id: 1,
     name: "STAMP Pertamina",
     img: StampProject,
     icon: StampLogo,
@@ -25,19 +27,12 @@ export const ProjectCardsData = [
     link: "https://stamp.pertamina-ptc.com/",
   },
   {
+    id: 2,
     name: "Sagara Group",
     img: SagaraProject,
     icon: SagaraLogo,
     desc: "A website for company executives and investors to track Sagara Technology's financial performance and product progress.",
     color: "radial-gradient(circle, #454545, #3b3b3b, #313131, #272727, #1e1e1e)",
     link: "https://sagara-frontend.vercel.app/",
-  },
-  {
-    name: "Tunov",
-    img: TunovProject,
-    icon: TunovLogo,
-    desc: "It is a website to display products produced by an online totebag store named tunov",
-    color: "radial-gradient(circle, #ecce90, #eec97d, #f0c46a, #f2bf56, #f4ba40)",
-    link: "https://tunov.vercel.app/",
   },
 ];
