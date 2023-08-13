@@ -9,7 +9,7 @@ import { setToggle } from "@/redux/features/toggleSlice";
 import { Icon } from "@iconify/react";
 import { useScreenSize } from "@/hooks/useDimension";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMouseScroll } from "@/hooks/useMouseScroll";
 
 export default function Navbar() {
