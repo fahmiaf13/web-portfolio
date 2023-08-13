@@ -17,7 +17,7 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <div className="text-xl font-bold mt-5 mb-3">Was built with</div>
+          <div className="text-xl font-bold mt-5 mb-3">Built with</div>
           <div className="flex gap-5">
             {iconFooter.support.map((item, index) => (
               <Link className="hover:opacity-30 duration-200" target="_blank" key={index} href={item.link}>

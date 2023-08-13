@@ -24,6 +24,7 @@ type styleType = {
 
 export default function Home() {
   const switchValue = useAppSelector((state) => state.switch);
+  const toggleValue = useAppSelector((state) => state.toggle);
   const [selectedId, setSelectedId] = useState<any>(null);
   const [cards, isCards] = useState<boolean | null>(false);
 
@@ -37,8 +38,8 @@ export default function Home() {
 
   const styles: styleType = {
     gallery: `w-full gap-3 flex flex-col justify-center items-center`,
-    item: `min-h-[300px]  w-full bg-gray-100 gap-3 rounded-xl`,
-    placeholder: `h-[300px] w-full`,
+    item: `min-h-[300px] flex items-center w-full bg-gray-100 gap-3 rounded-xl`,
+    placeholder: `h-full w-full`,
     additional: ``,
     modal: `bg-gray-100 w-[500px] h-[500px] relative`,
     modalClose: `w-[30px] h-[30px] visible absolute top-3 right-3 cursor-pointer`,
@@ -49,7 +50,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center">
-      <section className="w-full flex h-screen justify-center items-center gap-10">
+      <section className="container mx-auto w-full flex md:flex-row flex-col h-screen justify-center items-center gap-10">
         <div>
           <h1 className="text-7xl font-extrabold">Hello,</h1>
           <h2 className="text-3xl font-extrabold">{`I'm Fahmi Achmad Fahrudin`}</h2>
@@ -62,8 +63,8 @@ export default function Home() {
       {/* <section className="h-screen text-4xl font-extrabold">
         <div className="">Tech Stack</div>
       </section> */}
-      {!switchValue ? (
-        <section className="w-5/12">
+      {toggleValue === 0 ? (
+        <section className="container mx-auto md:w-7/12 lg:w-5/12">
           <div className="my-5 font-extrabold text-center text-4xl">Experiences</div>
           <div className="min-h-screen">
             <LayoutGroup>
@@ -71,18 +72,18 @@ export default function Home() {
                 {experienceDatas.map((item) => (
                   <motion.li className={styles.item} key={item.id} layoutId={`${item.id}`} initial={{ borderRadius: "0.6rem" }}>
                     <motion.div className={styles.placeholder} layoutId={`placeholder-${item.id}`}>
-                      <div className="flex flex-row h-full items-center p-5">
-                        <div className="w-1/2 flex justify-center">
+                      <div className="flex flex-col md:flex-row h-full justify-center items-center p-5">
+                        <div className="w-1/2 flex items-center h-full justify-center">
                           <div className="w-32 flex items-center justify-center h-full">
                             <Image src={item.icon} alt="stamp-logo" style={{ width: "100%", height: "auto" }} />
                           </div>
                         </div>
-                        <div className="flex w-1/2 flex-col">
-                          <div className="font-extrabold text-2xl">{item.role}</div>
-                          <div className="text-xl">{item.company}</div>
+                        <div className="flex text-center md:text-start justify-center h-full w-full md:w-1/2 flex-col">
+                          <div className="font-extrabold text-xl md:text-2xl">{item.role}</div>
+                          <div className="text-lg md:text-xl">{item.company}</div>
                           <div className="text-sm">{item.entryDate}</div>
                           <div className="text-sm">{item.status}</div>
-                          <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-1/2 hover:bg-transparent mt-7 duration-300 hover:text-primary hover:border-primary hover:border-2">
+                          <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-full md:w-1/2 hover:bg-transparent mt-7 duration-300 hover:text-primary hover:border-primary hover:border-2">
                             See More
                           </Button>
                         </div>

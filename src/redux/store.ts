@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import switchReducer from "./features/switchSlice";
+import toggleReducer from "./features/toggleSlice";
 
 export const store = configureStore({
   reducer: {
     switch: switchReducer,
+    toggle: toggleReducer,
   },
   devTools: process.env.NODE_ENV !== "production",
 });
