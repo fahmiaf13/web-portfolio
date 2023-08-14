@@ -6,7 +6,7 @@ import { experienceDatas } from "@/data/ExperienceData";
 import { ProjectCardsData } from "@/data/ProjectData";
 import { useAppSelector } from "@/redux/hooks";
 import { Button } from "@/components/ui/button";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
@@ -23,7 +23,6 @@ type styleType = {
 };
 
 export default function Home() {
-  const switchValue = useAppSelector((state) => state.switch);
   const toggleValue = useAppSelector((state) => state.toggle);
   const [selectedId, setSelectedId] = useState<any>(null);
   const [cards, isCards] = useState<boolean | null>(false);
@@ -41,8 +40,8 @@ export default function Home() {
     item: `min-h-[300px] flex items-center w-full bg-gray-100 gap-3 rounded-xl`,
     placeholder: `h-full w-full`,
     additional: ``,
-    modal: `bg-gray-100 w-[500px] h-[500px] relative`,
-    modalClose: `w-[30px] h-[30px] visible absolute top-3 right-3 cursor-pointer`,
+    modal: `bg-gray-100 w-[350px] min-h-[300px] md:w-[500px] md:h-[500px] relative p-5`,
+    modalClose: `w-[20px] h-[20px] visible absolute top-5 right-5 cursor-pointer`,
     modalBackdrop: `bg-slate-500 fixed h-screen w-screen top-0 left-0 z-[1]`,
     itemClose: ` invisible absolute top-3 right-3`,
     modalContainer: `h-screen w-screen top-0 left-0 fixed flex justify-center items-center z-[2]`,
@@ -60,9 +59,7 @@ export default function Home() {
           <Image className="border-2 rounded-xl" src="/hero.png" alt="hero" priority width={300} height={300} />
         </div>
       </section>
-      {/* <section className="h-screen text-4xl font-extrabold">
-        <div className="">Tech Stack</div>
-      </section> */}
+
       {toggleValue === 0 ? (
         <section className="container mx-auto md:w-7/12 lg:w-5/12">
           <div className="my-5 font-extrabold text-center text-4xl">Experiences</div>
@@ -102,16 +99,21 @@ export default function Home() {
                     <motion.div className={styles.modalContainer} key="modal">
                       <motion.div className={styles.modal} layoutId={`${selectedId.id}`} initial={{ borderRadius: "1.2rem" }}>
                         <motion.div className={styles.placeholder} layoutId={`placeholder-${selectedId.id}`}>
-                          <div className="flex items-center flex-col p-5">
-                            <div className="w-24 flex items-center justify-center h-full">
-                              <Image src={selectedId.icon} alt="stamp-logo" style={{ width: "100%", height: "auto" }} />
+                          <div className="flex flex-col p-5">
+                            <div className="flex justify-start items-center gap-5">
+                              <div className="w-16 flex items-center justify-center h-full">
+                                <Image src={selectedId.icon} alt="stamp-logo" style={{ width: "100%", height: "auto" }} />
+                              </div>
+                              <div>
+                                <div className="text-lg font-bold">{selectedId.company}</div>
+                                <div className="text-sm text-primary font-light">{selectedId.role}</div>
+                                <div className="text-xs text-primary font-light">{selectedId.entryDate}</div>
+                              </div>
                             </div>
-                            <div className="flex flex-col">
-                              <div className="text-center text-3xl font-extrabold">{selectedId.company}</div>
-                              <div className="text-lg text-center text-primary font-extrabold">{selectedId.role}</div>
-                              <div className="text-normal text-center text-primary font-extralight ">{`${selectedId.status} ${selectedId.entryDate}`}</div>
+                            <div className="flex flex-col mt-10">
+                              <div className="text-lg font-bold mb-3">Jobdesc</div>
                               {selectedId?.desc?.map((item: any, index: number) => (
-                                <div className="text-normal font-extralight" key={index}>
+                                <div className="text-sm md:text-normal font-extralight" key={index}>
                                   - {item}
                                 </div>
                               ))}
@@ -180,7 +182,7 @@ export default function Home() {
           </div>
         </section>
       ) : (
-        <section className="min-h-screen w-5/12">
+        <section className="container mx-auto md:w-10/12 lg:w-5/12">
           <div className="my-5 font-extrabold text-center text-4xl">Work</div>
           <div className="min-h-screen">
             <LayoutGroup>
@@ -188,18 +190,20 @@ export default function Home() {
                 {ProjectCardsData.map((item) => (
                   <motion.li className={styles.item} key={item.id} layoutId={`${item.id}`} initial={{ borderRadius: "0.6rem" }}>
                     <motion.div className={styles.placeholder} layoutId={`placeholder-${item.id}`}>
-                      <div className="flex flex-row h-full items-center ps-5">
-                        <div className="w-1/2 flex flex-col gap-3">
-                          <div className="w-16 flex items-end h-full ">
+                      <div className="flex gap-5 flex-col md:flex-row h-full justify-center items-center p-5">
+                        <div className="w-full md:w-1/2 flex flex-col h-full md:items-start items-center justify-center">
+                          <div className="w-16 flex items-center justify-center h-full">
                             <Image src={item.icon} alt="stamp-logo" className="w-full h-auto" />
                           </div>
-                          <div className="font-extrabold text-2xl">{item.name}</div>
-                          <div className="text-sm">{item.desc}</div>
+                          <div className="flex text-center md:text-start items-center md:items-start justify-center h-full w-full md:w-full flex-col">
+                            <div className="font-extrabold text-xl md:text-2xl">{item.name}</div>
+                            <div className="text-sm">{item.desc}</div>
+                          </div>
                           {/* <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-1/2 hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2">
                             See More
                           </Button> */}
                         </div>
-                        <div className="flex w-1/2 justify-center pe-5 items-center h-full relative">
+                        <div className="flex w-1/2 justify-center items-center h-full relative">
                           <Image src={item.img} alt={item.name} className="w-auto max-h-[15rem]" />
                         </div>
                       </div>
@@ -223,7 +227,7 @@ export default function Home() {
                             </div>
                             <div className="flex flex-col">
                               <div className="text-center text-3xl font-extrabold">{selectedId.name}</div>
-                              <div className="text-lg text-center text-primary font-extrabold">{selectedId.desc}</div>
+                              <div className="text-lg text-center  text-primary font-extrabold">{selectedId.desc}</div>
                               {/* <div className="text-normal text-center text-primary font-extralight ">{`${selectedId.status} ${selectedId.entryDate}`}</div> */}
                               {/* {selectedId?.desc?.map((item: any, index: number) => (
                                 <div className="text-normal font-extralight" key={index}>

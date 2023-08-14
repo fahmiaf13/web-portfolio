@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 export const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState<number>(768);
+  const [screenSize, setScreenSize] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
