@@ -4,12 +4,11 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setSwitch } from "@/redux/features/switchSlice";
 import { setToggle } from "@/redux/features/toggleSlice";
 import { Icon } from "@iconify/react";
 import { useScreenSize } from "@/hooks/useDimension";
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { useEffect, useState } from "react";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
 import { useMouseScroll } from "@/hooks/useMouseScroll";
 
 export default function Navbar() {
@@ -17,6 +16,7 @@ export default function Navbar() {
   const toggle = useAppSelector((state) => state.toggle);
   const screenSize = useScreenSize();
   const mouseScroll = useMouseScroll();
+  const router = useRouter();
 
   const handleToggleClick = (value: number) => {
     dispatch(setToggle(value));
@@ -59,7 +59,7 @@ export default function Navbar() {
                 <SheetClose asChild>
                   <ul className="text-2xl pt-10 text-foreground/50 font-light flex items-center flex-col gap-10">
                     <li>
-                      <Link href="/">Home</Link>
+                      <button onClick={() => router.push("/")}>Home</button>
                     </li>
                     <li>
                       <button onClick={() => handleToggleClick(0)}>Work</button>

@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <section className="container mx-auto w-full flex md:flex-row flex-col h-screen justify-center items-center gap-10">
-        <div>
+        <div className="mt-10 md:mt-0">
           <h1 className="text-7xl font-extrabold">Hello,</h1>
           <h2 className="text-3xl font-extrabold">{`I'm Fahmi Achmad Fahrudin`}</h2>
           <p className="font-thin">Full-Time Programmer | Part-Time Designer</p>
@@ -77,10 +77,10 @@ export default function Home() {
                         </div>
                         <div className="flex text-center md:text-start justify-center h-full w-full md:w-1/2 flex-col">
                           <div className="font-extrabold text-xl md:text-2xl">{item.role}</div>
-                          <div className="text-lg md:text-xl">{item.company}</div>
-                          <div className="text-sm">{item.entryDate}</div>
-                          <div className="text-sm">{item.status}</div>
-                          <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-full md:w-1/2 hover:bg-transparent mt-7 duration-300 hover:text-primary hover:border-primary hover:border-2">
+                          <div className="text-md font-light md:text-lg">{item.company}</div>
+                          <div className="text-sm font-light">{item.entryDate}</div>
+                          {/* <div className="text-sm">{item.status}</div> */}
+                          <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-full md:w-1/2 hover:bg-transparent mt-5 duration-300 hover:text-primary hover:border-primary hover:border-2">
                             See More
                           </Button>
                         </div>
@@ -113,7 +113,7 @@ export default function Home() {
                             <div className="flex flex-col mt-10">
                               <div className="text-lg font-bold mb-3">Jobdesc</div>
                               {selectedId?.desc?.map((item: any, index: number) => (
-                                <div className="text-sm md:text-normal font-extralight" key={index}>
+                                <div className="text-sm md:text-md font-extralight" key={index}>
                                   - {item}
                                 </div>
                               ))}
@@ -191,8 +191,8 @@ export default function Home() {
                   <motion.li className={styles.item} key={item.id} layoutId={`${item.id}`} initial={{ borderRadius: "0.6rem" }}>
                     <motion.div className={styles.placeholder} layoutId={`placeholder-${item.id}`}>
                       <div className="flex gap-5 flex-col md:flex-row h-full justify-center items-center p-5">
-                        <div className="w-full md:w-1/2 flex flex-col h-full md:items-start items-center justify-center">
-                          <div className="w-16 flex items-center justify-center h-full">
+                        <div className="w-full md:w-1/2 flex flex-col gap-3 h-full md:items-start items-center justify-center">
+                          <div className="w-10 flex items-center justify-center h-full">
                             <Image src={item.icon} alt="stamp-logo" className="w-full h-auto" />
                           </div>
                           <div className="flex text-center md:text-start items-center md:items-start justify-center h-full w-full md:w-full flex-col">
