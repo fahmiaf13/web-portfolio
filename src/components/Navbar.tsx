@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -10,6 +9,9 @@ import { useScreenSize } from "@/hooks/useDimension";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
 import { useMouseScroll } from "@/hooks/useMouseScroll";
+import Link from "next/link";
+import Logo from "@/assets/img/logo.svg";
+import Image from "next/image";
 
 export default function Navbar() {
   const dispatch = useAppDispatch();
@@ -25,7 +27,10 @@ export default function Navbar() {
   return (
     <nav className={`${mouseScroll > 10 ? "bg-foreground/5 backdrop-blur-sm" : "bg-transparent"} duration-150 w-full z-[1] fixed h-24`}>
       <div className="container mx-auto flex items-center h-full justify-between md:justify-evenly">
-        <Link href="/">
+        <Link href="/" className="flex gap-1 items-center">
+          <div className="relative">
+            <Image className="w-5" src={Logo} alt="icon" priority width={300} height={300} />
+          </div>
           <div className="font-extrabold text-2xl">Portfolio</div>
         </Link>
         {screenSize >= 768 ? (

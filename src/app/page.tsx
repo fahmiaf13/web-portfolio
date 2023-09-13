@@ -59,6 +59,16 @@ export default function Home() {
           <Image className="border-2 rounded-xl" src="/hero.png" alt="hero" priority width={300} height={300} />
         </div>
       </section>
+      <section className="container mx-auto w-full flex flex-row md:flex-col h-screen justify-center items-center gap-10">
+        <div className="text-7xl font-extrabold">About Me</div>
+        <div className="w-1/2">
+          <div className="text-lg font-light">
+            Front-End Web Developer with over 1 year of experience specializing in React.js and Vue.js. Proficient in building dynamic and responsive user interfaces, optimizing web performance, and ensuring cross-browser compatibility.
+            Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
+            experiences.
+          </div>
+        </div>
+      </section>
 
       {toggleValue === 0 ? (
         <section className="container mx-auto md:w-7/12 lg:w-5/12">
