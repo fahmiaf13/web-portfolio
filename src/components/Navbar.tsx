@@ -24,6 +24,15 @@ export default function Navbar() {
     dispatch(setToggle(value));
   };
 
+  const handleDownload = () => {
+    const downloadUrl = "/cv.pdf";
+    const anchor = document.createElement("a");
+    anchor.href = downloadUrl;
+    anchor.download = "CV-Fahmi Achmad.pdf";
+    anchor.click();
+    anchor.remove();
+  };
+
   return (
     <nav className={`${mouseScroll > 10 ? "bg-foreground/5 backdrop-blur-sm" : "bg-transparent"} duration-150 w-full z-[1] fixed h-24`}>
       <div className="container mx-auto flex items-center h-full justify-between md:justify-evenly">
@@ -48,9 +57,7 @@ export default function Navbar() {
               </motion.div>
             </ul>
             <div>
-              <Link target="_blank" href="https://drive.google.com/file/d/1Ji0Qymml4z7neCYJNvyBSQjb_jjVi56L/view?usp=drive_link">
-                <Button className="hover:bg-transparent duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">Download CV</Button>
-              </Link>
+              <Button onClick={handleDownload}>Download CV</Button>
             </div>
           </>
         ) : (
@@ -72,9 +79,9 @@ export default function Navbar() {
                     <li>
                       <button onClick={() => handleToggleClick(1)}>Task</button>
                     </li>
-                    <Link className="w-full" target="_blank" href="https://drive.google.com/file/d/1Ji0Qymml4z7neCYJNvyBSQjb_jjVi56L/view?usp=drive_link">
-                      <Button className="w-full hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">Download CV</Button>
-                    </Link>
+                    <Button onClick={handleDownload} className="w-full hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">
+                      Download CV
+                    </Button>
                   </ul>
                 </SheetClose>
               </SheetHeader>

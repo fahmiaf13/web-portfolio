@@ -8,7 +8,6 @@ import { useAppSelector } from "@/redux/hooks";
 import { Button } from "@/components/ui/button";
 import { useCallback, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import { Icon } from "@iconify/react";
 
 type styleType = {
   gallery: string;
@@ -62,10 +61,26 @@ export default function Home() {
       <section className="container mx-auto w-full flex flex-row md:flex-col h-screen justify-center items-center gap-10">
         <div className="text-7xl font-extrabold">About Me</div>
         <div className="w-1/2">
-          <div className="text-lg font-light">
+          <div className="text-lg font-light text-center">
             Front-End Web Developer with over 1 year of experience specializing in React.js and Vue.js. Proficient in building dynamic and responsive user interfaces, optimizing web performance, and ensuring cross-browser compatibility.
             Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
             experiences.
+          </div>
+          <div className="flex justify-center items-center h-full">
+            <div className="flex items-center w-1/2">
+              <div className="relative w-full h-10">
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="hero" fill />
+              </div>
+              <div className="relative w-full h-5">
+                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="hero" />
+              </div>
+              <div className="relative w-full h-10">
+                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="hero" />
+              </div>
+              <div className="relative w-full h-7">
+                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="hero" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

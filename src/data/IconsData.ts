@@ -1,4 +1,4 @@
-const icons = {
+export const icons = {
   twitter: {
     icon: "mdi:twitter",
     link: "https://twitter.com/fahmiaf13",
