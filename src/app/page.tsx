@@ -41,7 +41,7 @@ export default function Home() {
     additional: ``,
     modal: `bg-gray-100 w-[350px] min-h-[300px] md:w-[500px] md:h-[500px] relative p-5`,
     modalClose: `w-[20px] h-[20px] visible absolute top-5 right-5 cursor-pointer`,
-    modalBackdrop: `bg-slate-500 fixed h-screen w-screen top-0 left-0 z-[1]`,
+    modalBackdrop: `bg-slate-500 fixed h-screen w-screen top-0 left-0 z-[1] overflow-hidden	`,
     itemClose: ` invisible absolute top-3 right-3`,
     modalContainer: `h-screen w-screen top-0 left-0 fixed flex justify-center items-center z-[2]`,
   };
@@ -58,29 +58,13 @@ export default function Home() {
           <Image className="border-2 rounded-xl" src="/hero.png" alt="hero" priority width={300} height={300} />
         </div>
       </section>
-      <section className="container mx-auto w-full flex flex-row md:flex-col h-screen justify-center items-center gap-10">
-        <div className="text-7xl font-extrabold">About Me</div>
-        <div className="w-1/2">
+      <section className="container mx-auto w-full flex flex-col h-screen justify-center items-center gap-10">
+        <div className="text-5xl md:text-7xl font-extrabold text-center">About Me</div>
+        <div className="w-full md:w-1/2">
           <div className="text-lg font-light text-center">
             Front-End Web Developer with over 1 year of experience specializing in React.js and Vue.js. Proficient in building dynamic and responsive user interfaces, optimizing web performance, and ensuring cross-browser compatibility.
             Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
             experiences.
-          </div>
-          <div className="flex justify-center items-center h-full">
-            <div className="flex items-center w-1/2">
-              <div className="relative w-full h-10">
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="hero" fill />
-              </div>
-              <div className="relative w-full h-5">
-                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="hero" />
-              </div>
-              <div className="relative w-full h-10">
-                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="hero" />
-              </div>
-              <div className="relative w-full h-7">
-                <Image fill src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="hero" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
