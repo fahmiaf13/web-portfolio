@@ -93,6 +93,14 @@ export const icons = {
     icon: "ph:figma-logo-bold",
     link: "https://www.figma.com/",
   },
+  nuxt: {
+    icon: "simple-icons:nuxtdotjs",
+    link: "https://nuxt.com/",
+  },
+  express: {
+    icon: "simple-icons:express",
+    link: "https://www.express.com",
+  },
 };
 
 export const iconFooter = {
@@ -168,6 +176,11 @@ export const skillsIcon = {
       icon: icons.node.icon,
       link: icons.node.link,
       desc: "Node.js is a server-side JavaScript runtime environment for building fast, scalable network applications. It uses event-driven, non-blocking I/O for efficiency.      ",
+    },
+    {
+      name: "Express",
+      icon: icons.express.icon,
+      link: icons.express.link,
     },
   ],
   otherSkill: [

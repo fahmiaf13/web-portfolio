@@ -1,3 +1,4 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-export { Navbar, Footer };
+import Carousel from "./Carousel";
+export { Carousel, Navbar, Footer };

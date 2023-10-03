@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { Card } from "@/components/ui/card";
+import { Carousel } from "@/components";
 import { experienceDatas } from "@/data/ExperienceData";
 import { ProjectCardsData } from "@/data/ProjectData";
 import { useAppSelector } from "@/redux/hooks";
 import { Button } from "@/components/ui/button";
 import { useCallback, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+import { skillsIcon } from "@/data/IconsData";
+import Link from "next/link";
 
 type styleType = {
   gallery: string;
@@ -24,7 +27,6 @@ type styleType = {
 export default function Home() {
   const toggleValue = useAppSelector((state) => state.toggle);
   const [selectedId, setSelectedId] = useState<any>(null);
-  const [cards, isCards] = useState<boolean | null>(false);
 
   const handleClose = useCallback(() => {
     setSelectedId(null);
@@ -39,7 +41,7 @@ export default function Home() {
     item: `min-h-[300px] flex items-center w-full bg-gray-100 gap-3 rounded-xl`,
     placeholder: `h-full w-full`,
     additional: ``,
-    modal: `bg-gray-100 w-[350px] min-h-[300px] md:w-[500px] md:h-[500px] relative p-5`,
+    modal: `bg-gray-50 w-[350px] min-h-[300px] md:w-[500px] md:h-[500px] relative p-5`,
     modalClose: `w-[20px] h-[20px] visible absolute top-5 right-5 cursor-pointer`,
     modalBackdrop: `bg-slate-500 fixed h-screen w-screen top-0 left-0 z-[1] overflow-hidden	`,
     itemClose: ` invisible absolute top-3 right-3`,
@@ -66,6 +68,22 @@ export default function Home() {
             Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
             experiences.
           </div>
+          <div className="flex flex-col justify-center items-center mt-10">
+            <div className="flex">
+              {skillsIcon.techStack.map((skill, index) => (
+                <Link href={skill.link} key={index} target="_blank" className="hover:bg-slate-200 p-2 rounded-full duration-200">
+                  <Icon icon={skill.icon} width={30} />
+                </Link>
+              ))}
+            </div>
+            <div className="flex">
+              {skillsIcon.otherSkill.map((skill, index) => (
+                <Link href={skill.link} key={index} target="_blank" className="hover:bg-slate-200 p-2 rounded-full duration-200">
+                  <Icon icon={skill.icon} width={30} />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -88,7 +106,7 @@ export default function Home() {
                           <div className="font-extrabold text-xl md:text-2xl">{item.role}</div>
                           <div className="text-md font-light md:text-lg">{item.company}</div>
                           <div className="text-sm font-light">{item.entryDate}</div>
-                          {/* <div className="text-sm">{item.status}</div> */}
+
                           <Button onClick={() => selectedId === null && setSelectedId(item)} className="w-full md:w-1/2 hover:bg-transparent mt-5 duration-300 hover:text-primary hover:border-primary hover:border-2">
                             See More
                           </Button>
