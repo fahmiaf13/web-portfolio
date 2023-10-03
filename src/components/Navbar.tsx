@@ -89,7 +89,7 @@ export default function Navbar() {
               <SheetHeader>
                 <SheetTitle className="font-extrabold text-4xl">Portfolio</SheetTitle>
                 <SheetClose asChild>
-                  <ul className="text-2xl pt-10 text-foreground/50 font-light flex items-center flex-col gap-10">
+                  <ul className="text-xl pt-10 text-foreground/50 font-light flex items-center flex-col gap-5">
                     <li>
                       <button onClick={() => router.push("/")}>Home</button>
                     </li>
@@ -100,7 +100,7 @@ export default function Navbar() {
                       <button onClick={() => handleToggleClick(1)}>Task</button>
                     </li>
                     <Button disabled={isLoading ? true : false} onClick={handleDownload} className="w-full hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">
-                      {!isLoading ? (
+                      {isLoading ? (
                         <>
                           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
                           <p>Please wait</p>

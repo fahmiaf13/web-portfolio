@@ -80,7 +80,7 @@ export default function Home() {
                     <motion.div className={styles.placeholder} layoutId={`placeholder-${item.id}`}>
                       <div className="flex flex-col md:flex-row h-full justify-center items-center p-5">
                         <div className="w-1/2 flex items-center h-full justify-center">
-                          <div className="w-32 flex items-center justify-center h-full">
+                          <div className="w-28 flex items-center justify-center h-full">
                             <Image src={item.icon} alt="stamp-logo" style={{ width: "100%", height: "auto" }} />
                           </div>
                         </div>
