@@ -12,8 +12,12 @@ import { useMouseScroll } from "@/hooks/useMouseScroll";
 import Link from "next/link";
 import Logo from "@/assets/img/logo.svg";
 import Image from "next/image";
+import { useState } from "react";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 export default function Navbar() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
   const toggle = useAppSelector((state) => state.toggle);
   const screenSize = useScreenSize();
@@ -25,12 +29,19 @@ export default function Navbar() {
   };
 
   const handleDownload = () => {
-    const downloadUrl = "/cv.pdf";
-    const anchor = document.createElement("a");
-    anchor.href = downloadUrl;
-    anchor.download = "CV-Fahmi Achmad.pdf";
-    anchor.click();
-    anchor.remove();
+    setIsLoading(true);
+    try {
+      const downloadUrl = "/cv.pdf";
+      const anchor = document.createElement("a");
+      anchor.href = downloadUrl;
+      anchor.download = "CV-Fahmi Achmad.pdf";
+      anchor.click();
+      anchor.remove();
+    } catch (error) {
+      alert("Terjadi Kesalahan");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -57,7 +68,16 @@ export default function Navbar() {
               </motion.div>
             </ul>
             <div>
-              <Button onClick={handleDownload}>Download CV</Button>
+              <Button disabled={isLoading ? true : false} onClick={handleDownload} className="w-full hover:bg-transparent duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">
+                {isLoading ? (
+                  <>
+                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                    <p>Please wait</p>
+                  </>
+                ) : (
+                  <p>Download CV</p>
+                )}
+              </Button>
             </div>
           </>
         ) : (
@@ -79,8 +99,15 @@ export default function Navbar() {
                     <li>
                       <button onClick={() => handleToggleClick(1)}>Task</button>
                     </li>
-                    <Button onClick={handleDownload} className="w-full hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">
-                      Download CV
+                    <Button disabled={isLoading ? true : false} onClick={handleDownload} className="w-full hover:bg-transparent  duration-300 hover:text-primary hover:border-primary hover:border-2 border-2 border-primary">
+                      {!isLoading ? (
+                        <>
+                          <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                          <p>Please wait</p>
+                        </>
+                      ) : (
+                        <p>Download CV</p>
+                      )}
                     </Button>
                   </ul>
                 </SheetClose>
