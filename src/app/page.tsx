@@ -64,7 +64,7 @@ export default function Home() {
         <div className="text-5xl md:text-7xl font-extrabold text-center">About Me</div>
         <div className="w-full md:w-1/2">
           <div className="text-lg font-light text-center">
-            Front-End Web Developer with over 1 year of experience specializing in React.js and Vue.js. Proficient in building dynamic and responsive user interfaces, optimizing web performance, and ensuring cross-browser compatibility.
+            Front-End Web Developer with 2 years of experience specializing in React.js and Vue.js. Proficient in building dynamic and responsive user interfaces, optimizing web performance, and ensuring cross-browser compatibility.
             Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
             experiences.
           </div>
