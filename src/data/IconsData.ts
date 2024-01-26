@@ -217,13 +217,8 @@ export const skillsIcon = {
       link: icons.vue.link,
     },
     {
-      icon: icons.node.icon,
-      link: icons.node.link,
-    },
-
-    {
-      icon: icons.windicss.icon,
-      link: icons.windicss.link,
+      icon: icons.nuxt.icon,
+      link: icons.nuxt.link,
     },
     {
       icon: icons.git.icon,

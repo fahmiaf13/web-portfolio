@@ -68,7 +68,7 @@ export default function Home() {
             Experienced in server-side rendering using Node.js and Express.js with Next.js or Nuxt.js frameworks. Strong problem-solving abilities and a collaborative mindset. Passionate about creating engaging and user-friendly web
             experiences.
           </div>
-          <div className="flex flex-col justify-center items-center mt-10">
+          <div className="flex flex-col w-full justify-center items-center mt-10">
             <div className="flex">
               {skillsIcon.techStack.map((skill, index) => (
                 <Link href={skill.link} key={index} target="_blank" className="hover:bg-slate-200 p-2 rounded-full duration-200">
@@ -76,7 +76,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <div className="flex">
+            <div className="flex flex-wrap justify-center">
               {skillsIcon.otherSkill.map((skill, index) => (
                 <Link href={skill.link} key={index} target="_blank" className="hover:bg-slate-200 p-2 rounded-full duration-200">
                   <Icon icon={skill.icon} width={30} />
