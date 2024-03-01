@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
       <section className="container mx-auto w-full flex md:flex-row flex-col h-screen justify-center items-center gap-10">
-        <div className="mt-10 md:mt-0">
+        <div className="mt-16 md:mt-0">
           <h1 className="text-7xl font-extrabold">Hello,</h1>
           <h2 className="text-3xl font-extrabold">{`I'm Fahmi Achmad Fahrudin`}</h2>
           <p className="font-thin">Full-Time Programmer | Part-Time Designer</p>
