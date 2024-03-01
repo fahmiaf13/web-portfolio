@@ -31,7 +31,7 @@ export default function Navbar() {
   const handleDownload = () => {
     setIsLoading(true);
     try {
-      const downloadUrl = "/cv.pdf";
+      const downloadUrl = "/CV_Fahmi-Achmad.pdf";
       const anchor = document.createElement("a");
       anchor.href = downloadUrl;
       anchor.download = "CV-Fahmi Achmad.pdf";
