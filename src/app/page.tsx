@@ -17,7 +17,11 @@ const sectionTitle = "mt-[18px] font-display text-[clamp(42px,5vw,76px)] leading
 export default function Home() {
   return (
     <main id="top" className="bg-paper text-ink selection:bg-green selection:text-white">
-      <header className="grid h-[72px] grid-cols-[1fr_1fr_1.2fr_auto] items-center gap-[25px] border-b border-ink px-[3vw] font-mono text-[11px] leading-[1.3] font-bold max-[900px]:grid-cols-[1fr_1fr_auto] max-[650px]:h-[68px] max-[650px]:px-[18px]">
+      <header
+        data-intro
+        style={{ "--intro-delay": "40ms" } as React.CSSProperties}
+        className="grid h-[72px] grid-cols-[1fr_1fr_1.2fr_auto] items-center gap-[25px] border-b border-ink px-[3vw] font-mono text-[11px] leading-[1.3] font-bold max-[900px]:grid-cols-[1fr_1fr_auto] max-[650px]:h-[68px] max-[650px]:px-[18px]"
+      >
         <a className="flex items-center gap-[10px]" href="#top">
           <Image className="rounded-[5px]" src={Logo} alt="" width={50} height={50} priority />
         </a>
@@ -27,13 +31,13 @@ export default function Home() {
           &amp; DESIGNER
         </p>
         <nav className="flex justify-center gap-[25px] max-[650px]:gap-3" aria-label="Main navigation">
-          <a className="hover:text-red" href="#projects">
+          <a className="link-sweep hover:text-red" href="#projects">
             PROJECTS
           </a>
-          <a className="hover:text-red" href="#about">
+          <a className="link-sweep hover:text-red" href="#about">
             ABOUT
           </a>
-          <a className="hover:text-red" href="#experience">
+          <a className="link-sweep hover:text-red" href="#experience">
             EXPERIENCE
           </a>
         </nav>
@@ -47,7 +51,7 @@ export default function Home() {
           <span className="[writing-mode:vertical-rl] max-[650px]:[writing-mode:initial]">PORTFOLIO</span>
           <span className="rotate-180 [writing-mode:vertical-rl] max-[650px]:rotate-0 max-[650px]:[writing-mode:initial]">NO. 01 / 2026</span>
         </div>
-        <div className="max-[650px]:my-[45px]">
+        <div data-intro style={{ "--intro-delay": "150ms" } as React.CSSProperties} className="max-[650px]:my-[45px]">
           <p className="font-mono text-[11px] font-bold tracking-[0.1em]">HELLO, I&apos;M FAHMI — BASED IN INDONESIA</p>
           <h1 className="my-[30px] font-display text-[clamp(65px,8.2vw,128px)] leading-[0.78] tracking-[-0.02em] max-[900px]:text-[clamp(65px,11vw,105px)] max-[650px]:text-[clamp(64px,18vw,110px)]">
             I DESIGN &amp;
@@ -66,14 +70,14 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <figure className="m-0 max-[650px]:mx-auto max-[650px]:max-w-[420px]">
+        <figure data-intro style={{ "--intro-delay": "300ms" } as React.CSSProperties} className="m-0 max-[650px]:mx-auto max-[650px]:max-w-[420px]">
           <Image className="block h-auto w-full border border-ink" src={Profile} alt="Fahmi Achmad Fahrudin" priority />
           <figcaption className="mt-2 flex justify-between font-mono text-[9px] leading-[1.35] font-bold tracking-[0.03em]">
             <span>FAHMI ACHMAD FAHRUDIN</span>
             <span>FIG. 001</span>
           </figcaption>
         </figure>
-        <aside className="flex self-stretch flex-col justify-around border-l border-ink pl-[22px] max-[900px]:hidden">
+        <aside data-intro style={{ "--intro-delay": "430ms" } as React.CSSProperties} className="flex self-stretch flex-col justify-around border-l border-ink pl-[22px] max-[900px]:hidden">
           <div className="flex flex-col gap-[7px]">
             <b className="font-display text-[45px] leading-none text-green">04+</b>
             <span className="font-mono text-[10px] leading-[1.4] font-bold">
@@ -91,7 +95,7 @@ export default function Home() {
             </span>
           </div>
           <div className="flex flex-col gap-[7px]">
-            <i className="size-[9px] rounded-full bg-green shadow-[0_0_0_4px_#23745d22]" />
+            <i className="status-dot size-[9px] rounded-full bg-green shadow-[0_0_0_4px_#23745d22]" />
             <span className="font-mono text-[10px] leading-[1.4] font-bold">
               AVAILABLE FOR
               <br />
@@ -112,7 +116,7 @@ export default function Home() {
       </div>
 
       <section className="px-[3vw] py-[95px] max-[650px]:px-[18px] max-[650px]:py-[70px]" id="projects">
-        <header className="mb-[45px] grid grid-cols-[1fr_0.7fr] items-end gap-[8vw] border-b border-ink pb-[25px] max-[650px]:grid-cols-1 max-[650px]:gap-5">
+        <header data-reveal className="mb-[45px] grid grid-cols-[1fr_0.7fr] items-end gap-[8vw] border-b border-ink pb-[25px] max-[650px]:grid-cols-1 max-[650px]:gap-5">
           <div>
             <span className={sectionLabel}>01 / PROJECT INDEX</span>
             <h2 className={sectionTitle}>SELECTED WORK</h2>
@@ -121,7 +125,12 @@ export default function Home() {
         </header>
         <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[650px]:grid-cols-1">
           {ProjectCardsData.map((project, index) => (
-            <article className="min-w-0 last:max-[900px]:col-span-full last:max-[900px]:w-1/2 last:max-[650px]:col-auto last:max-[650px]:w-full" key={project.id}>
+            <article
+              data-reveal
+              style={{ "--reveal-delay": `${index * 90}ms` } as React.CSSProperties}
+              className="min-w-0 last:max-[900px]:col-span-full last:max-[900px]:w-1/2 last:max-[650px]:col-auto last:max-[650px]:w-full"
+              key={project.id}
+            >
               <a className="group relative grid h-[280px] place-items-center overflow-hidden border border-ink max-[650px]:h-[300px]" href={project.link} target="_blank" rel="noreferrer" style={{ background: project.color }}>
                 <span className="absolute top-[10px] right-[10px] z-2 grid size-8 place-items-center rounded-full border border-ink bg-yellow font-mono text-[8px] font-bold">0{index + 1}</span>
                 <Image
@@ -147,7 +156,7 @@ export default function Home() {
       </section>
 
       <section className="grid grid-cols-[0.7fr_1fr_1.3fr] gap-[5vw] border-y border-ink bg-yellow px-[3vw] py-[85px] max-[900px]:grid-cols-2 max-[650px]:grid-cols-1 max-[650px]:px-[18px] max-[650px]:py-[70px]" id="about">
-        <header>
+        <header data-reveal>
           <span className={sectionLabel}>02 / PROFILE</span>
           <h2 className="mt-[18px] font-display text-[clamp(52px,6.5vw,100px)] leading-[0.85]">
             DESIGN
@@ -155,7 +164,7 @@ export default function Home() {
             MEETS CODE.
           </h2>
         </header>
-        <div>
+        <div data-reveal style={{ "--reveal-delay": "100ms" } as React.CSSProperties}>
           <p className="m-0 mb-[25px] font-serif text-[25px] leading-[1.4] italic">I enjoy working where design decisions and technical decisions meet.</p>
           <p className="text-[15px] leading-[1.65]">
             My focus is building responsive interfaces with thoughtful interaction, maintainable front-end architecture, and close attention to accessibility and performance. I value clarity, curiosity, and work that feels genuinely useful.
@@ -164,7 +173,7 @@ export default function Home() {
             MORE ABOUT ME ↗
           </a>
         </div>
-        <div className="border-t border-ink max-[900px]:col-span-full max-[900px]:grid max-[900px]:grid-cols-3 max-[650px]:col-auto max-[650px]:grid-cols-1">
+        <div data-reveal style={{ "--reveal-delay": "180ms" } as React.CSSProperties} className="border-t border-ink max-[900px]:col-span-full max-[900px]:grid max-[900px]:grid-cols-3 max-[650px]:col-auto max-[650px]:grid-cols-1">
           {offers.map(([id, title, text]) => (
             <article className="grid grid-cols-[35px_1fr] gap-2 border-b border-ink px-[5px] py-[18px] max-[900px]:border-r max-[650px]:border-r-0" key={id}>
               <span className="font-mono text-[10px] leading-[1.35] font-bold tracking-[0.03em]">{id}</span>
@@ -176,7 +185,7 @@ export default function Home() {
       </section>
 
       <section className="grid grid-cols-2 gap-[10vw] bg-green px-[5vw] py-20 text-white max-[650px]:grid-cols-1 max-[650px]:gap-[45px] max-[650px]:px-[18px] max-[650px]:py-[70px]">
-        <div>
+        <div data-reveal>
           <span className={sectionLabel}>03 / TOOLKIT</span>
           <h2 className="mt-[25px] font-display text-[clamp(42px,5vw,76px)] leading-[0.85]">
             TOOLS I USE
@@ -184,7 +193,7 @@ export default function Home() {
             TO MAKE THINGS.
           </h2>
         </div>
-        <div className="border-t border-white">
+        <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="border-t border-white">
           {skillsIcon.techStack.map((skill, index) => (
             <a className="group grid grid-cols-[35px_1fr_auto] border-b border-white/60 px-[5px] py-[14px] font-mono text-[11px] hover:bg-yellow hover:text-ink" href={skill.link} target="_blank" rel="noreferrer" key={skill.name}>
               <span className="opacity-50">{String(index + 1).padStart(2, "0")}</span>
@@ -196,7 +205,7 @@ export default function Home() {
       </section>
 
       <section className="px-[3vw] py-[95px] max-[650px]:px-[18px] max-[650px]:py-[70px]" id="experience">
-        <header className="mb-[45px] grid grid-cols-[1fr_0.7fr] items-end gap-[8vw] border-b border-ink pb-[25px] max-[650px]:grid-cols-1 max-[650px]:gap-5">
+        <header data-reveal className="mb-[45px] grid grid-cols-[1fr_0.7fr] items-end gap-[8vw] border-b border-ink pb-[25px] max-[650px]:grid-cols-1 max-[650px]:gap-5">
           <div>
             <span className={sectionLabel}>04 / EXPERIENCE</span>
             <h2 className={sectionTitle}>WORK HISTORY</h2>
@@ -205,22 +214,14 @@ export default function Home() {
         </header>
         <div className="border-t border-ink">
           {experienceDatas.map((job, index) => (
-            <details className="group border-b border-ink" key={job.id}>
+            <details data-reveal style={{ "--reveal-delay": `${Math.min(index * 55, 220)}ms` } as React.CSSProperties} className="group border-b border-ink" key={job.id}>
               <summary className="grid cursor-pointer list-none grid-cols-[38px_45px_1fr_0.65fr_0.3fr_25px] items-center gap-[15px] px-[5px] py-[17px] font-mono text-[11px] font-bold hover:bg-red/10 max-[900px]:grid-cols-[32px_44px_1fr_0.6fr_25px] max-[650px]:grid-cols-[30px_42px_1fr_25px] max-[430px]:text-[10px]">
                 <span>0{index + 1}</span>
                 <span className="grid size-10 place-items-center overflow-hidden border border-ink bg-white p-1.5">
                   <Image className={job.company === "PT. Sagara Technology" ? "block size-5 object-contain" : "block h-auto max-h-full w-auto max-w-full object-contain"} src={job.icon} alt={job.company} />
                 </span>
                 <span className="flex flex-col gap-1">
-                  <b
-                    className={
-                      job.company === "BPJS Ketenagakerjaan"
-                        ? "font-serif text-[21px] leading-[1.05] font-bold tracking-[-0.02em] max-[650px]:text-lg"
-                        : "font-display text-[28px] leading-[1.05] font-normal tracking-normal max-[650px]:text-2xl"
-                    }
-                  >
-                    {job.company}
-                  </b>
+                  <b className={"font-display text-[28px] leading-[1.05] font-normal tracking-normal max-[650px]:text-2xl"}>{job.company}</b>
                   <i className="text-[11px] not-italic max-[650px]:text-[10px]">{job.role}</i>
                 </span>
                 <span className="max-[650px]:hidden">{job.entryDate}</span>
@@ -237,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-red px-[3vw] py-20 text-center text-white max-[650px]:px-[18px] max-[650px]:py-[70px]" id="contact">
+      <section data-reveal className="bg-red px-[3vw] py-20 text-center text-white max-[650px]:px-[18px] max-[650px]:py-[70px]" id="contact">
         <span className={sectionLabel}>05 / CONTACT</span>
         <p className="mt-[30px] font-mono text-[11px] font-bold">HAVE A PROJECT OR OPPORTUNITY?</p>
         <h2 className="mt-[25px] mb-[45px] font-display text-[clamp(75px,11vw,170px)] leading-[0.8]">LET&apos;S TALK.</h2>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import AnimationController from "./animation-controller";
 
 const bringbold = localFont({
   src: "../assets/fonts/bringbold-nineties.otf",
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={bringbold.variable}>
-      <body>{children}</body>
+      <body>
+        <AnimationController>{children}</AnimationController>
+      </body>
     </html>
   );
 }
