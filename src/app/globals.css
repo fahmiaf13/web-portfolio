@@ -1,32 +1,38 @@
 @import "tailwindcss";
 
-:root{--paper:#eee9dc;--ink:#20201d;--red:#e94d35;--green:#23745d;--yellow:#edc84b;--display:var(--font-bringbold),Impact,sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Trebuchet MS",Verdana,sans-serif}a{color:inherit;text-decoration:none}::selection{background:var(--green);color:white}
-.header{height:72px;padding:0 3vw;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:1fr 1fr 1.2fr auto;gap:25px;align-items:center;font:700 9px/1.3 "Courier New",monospace}.brand{display:flex;align-items:center;gap:10px}.brand img{border-radius:5px}.brand span{font-size:11px}.header nav{display:flex;justify-content:center;gap:25px}.header nav a:hover{color:var(--red)}.contactButton{border:1px solid var(--ink);padding:10px 12px;box-shadow:3px 3px 0 var(--red)}
-.hero{min-height:calc(100vh - 72px);padding:3vw;display:grid;grid-template-columns:55px 1.15fr .75fr .32fr;gap:3vw;align-items:center}.introTag{height:100%;border-right:1px solid var(--ink);padding-right:12px;display:flex;flex-direction:column;justify-content:space-between;font:700 8px "Courier New",monospace}.introTag span:first-child{writing-mode:vertical-rl}.introTag span:last-child{writing-mode:vertical-rl;transform:rotate(180deg)}.eyebrow{font:700 9px "Courier New",monospace;letter-spacing:.1em}.hero h1{font:clamp(65px,8.2vw,128px)/.78 var(--display);letter-spacing:-.02em;margin:30px 0}.hero h1 em{font-style:normal;color:var(--red)}.summary{max-width:590px;font:18px/1.5 Georgia,serif}.heroActions{display:flex;gap:25px;margin-top:30px}.heroActions a{font:700 9px "Courier New",monospace;border-bottom:1px solid var(--ink);padding-bottom:5px}.portrait{margin:0}.portrait>img{display:block;width:100%;height:auto;border:1px solid var(--ink)}.portrait figcaption{display:flex;justify-content:space-between;margin-top:8px;font:700 7px "Courier New",monospace}.heroFacts{align-self:stretch;border-left:1px solid var(--ink);display:flex;flex-direction:column;justify-content:space-around;padding-left:22px}.heroFacts div{display:flex;flex-direction:column;gap:7px}.heroFacts b{font:45px/1 var(--display);color:var(--green)}.heroFacts span{font:700 8px/1.4 "Courier New",monospace}.heroFacts i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #23745d22}
-.ticker{background:var(--green);color:white;border-block:1px solid var(--ink);overflow:hidden;padding:11px 0;white-space:nowrap}.ticker>div{display:flex;width:max-content;animation:run 25s linear infinite}.ticker span{font:700 10px "Courier New",monospace;margin-right:25px}.ticker i{color:var(--yellow);margin-left:25px;font-style:normal}@keyframes run{to{transform:translateX(-50%)}}
-.projectsSection,.experience{padding:95px 3vw}.sectionHead{display:grid;grid-template-columns:1fr .7fr;gap:8vw;align-items:end;margin-bottom:45px;border-bottom:1px solid var(--ink);padding-bottom:25px}.sectionHead>div>span,.about header>span,.skillsTitle>span,.cta>span{font:700 8px "Courier New",monospace;letter-spacing:.12em}.sectionHead h2,.about h2,.skillsTitle h2{font:clamp(42px,5vw,76px)/.85 var(--display);margin:18px 0 0}.sectionHead>p{font:15px/1.5 Georgia,serif;margin:0;max-width:500px}.projectGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.projectCard{min-width:0}.thumbnail{height:280px;border:1px solid var(--ink);display:grid;place-items:center;position:relative;overflow:hidden}.thumbnail>img{width:92%;height:88%;object-fit:contain;filter:drop-shadow(7px 8px 0 #20201d30);transition:.3s}.thumbnail:hover>img{transform:scale(1.025)}.projectNumber{position:absolute;top:10px;right:10px;z-index:2;background:var(--yellow);border:1px solid var(--ink);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 8px "Courier New",monospace}.projectLogo{position:absolute;left:10px;top:10px;background:white;border:1px solid var(--ink);width:76px;height:32px;padding:5px;display:grid;place-items:center}.projectLogo img{max-width:65px;max-height:20px;width:auto;height:auto}.projectTitle{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--ink);padding:14px 2px}.projectTitle h3{font:30px/1 var(--display);margin:0}.projectTitle a{font-size:20px}.projectCard>p{font-size:12px;line-height:1.5;min-height:72px}.projectType{font:700 7px "Courier New",monospace;color:var(--green)}
-.about{background:var(--yellow);border-block:1px solid var(--ink);padding:85px 3vw;display:grid;grid-template-columns:.7fr 1fr 1.3fr;gap:5vw}.about header h2{font-size:clamp(52px,6.5vw,100px)}.aboutCopy .lead{font:italic 25px/1.4 Georgia,serif;margin:0 0 25px}.aboutCopy>p:not(.lead){font-size:14px;line-height:1.65}.aboutCopy>a{display:block;width:max-content;margin-top:28px;border-bottom:1px solid var(--ink);padding-bottom:5px;font:700 8px "Courier New",monospace}.services{border-top:1px solid var(--ink)}.services article{display:grid;grid-template-columns:35px 1fr;gap:8px;padding:18px 5px;border-bottom:1px solid var(--ink)}.services span{font:700 8px "Courier New",monospace}.services h3{font:23px/1 var(--display);margin:0}.services p{grid-column:2;font-size:11px;line-height:1.45;margin:0}
-.skills{background:var(--green);color:white;padding:80px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:10vw}.skillsTitle h2{margin-top:25px}.skillList{border-top:1px solid white}.skillList a{display:grid;grid-template-columns:35px 1fr auto;padding:14px 5px;border-bottom:1px solid #ffffff99;font:10px "Courier New",monospace}.skillList span{opacity:.5}.skillList i{font-style:normal;color:var(--yellow)}.skillList a:hover{background:var(--yellow);color:var(--ink)}.skillList a:hover i{color:var(--ink)}
-.jobs{border-top:1px solid var(--ink)}.job{border-bottom:1px solid var(--ink)}.job summary{display:grid;grid-template-columns:38px 45px 1fr .65fr .3fr 25px;gap:15px;align-items:center;padding:17px 5px;cursor:pointer;list-style:none;font:700 8px "Courier New",monospace}.job summary:hover{background:#e94d3520}.jobLogo{width:40px;height:40px;background:white;border:1px solid var(--ink);display:grid;place-items:center;padding:6px}.jobLogo img{max-width:100%;max-height:100%;width:auto;height:auto}.jobName{display:flex;flex-direction:column;gap:4px}.jobName b{font:22px/1 var(--display)}.jobName i{font-style:normal}.jobStatus{border:1px solid var(--ink);padding:4px;width:max-content}.open{font-size:16px}.job ul{margin:0;padding:18px 8vw 24px 110px;border-top:1px dashed var(--ink);font-size:12px;line-height:1.55}.job li+li{margin-top:6px}
-.cta{background:var(--red);color:white;text-align:center;padding:80px 3vw}.cta>p{font:700 9px "Courier New",monospace;margin-top:30px}.cta h2{font:clamp(75px,11vw,170px)/.8 var(--display);margin:25px 0 45px}.cta>div{display:flex;justify-content:center;gap:15px}.cta a{border:1px solid white;padding:13px 16px;font:700 8px "Courier New",monospace}.cta a:hover{background:white;color:var(--red)}footer{height:64px;background:var(--ink);color:white;padding:0 3vw;display:flex;justify-content:space-between;align-items:center;font:700 8px "Courier New",monospace}footer div{display:flex;gap:22px}
-@media(max-width:900px){.header{grid-template-columns:1fr 1fr auto}.header>p{display:none}.hero{grid-template-columns:40px 1fr .75fr}.heroFacts{display:none}.hero h1{font-size:clamp(65px,11vw,105px)}.projectGrid{grid-template-columns:repeat(2,1fr)}.projectCard:last-child{grid-column:1/-1;width:50%}.about{grid-template-columns:1fr 1fr}.services{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr)}.services article{border-right:1px solid var(--ink)}.job summary{grid-template-columns:32px 44px 1fr .6fr 25px}.jobStatus{display:none}}
-@media(max-width:650px){.header{height:68px;padding:0 18px}.brand span{display:none}.header nav{gap:12px}.header nav a{font-size:0}.header nav a:before{content:attr(href);font-size:9px}.contactButton{display:none}.hero{display:block;padding:45px 18px}.introTag{height:auto;border-right:0;border-bottom:1px solid var(--ink);padding:0 0 10px;flex-direction:row}.introTag span:first-child,.introTag span:last-child{writing-mode:initial;transform:none}.heroCopy{margin:45px 0}.hero h1{font-size:clamp(64px,18vw,110px)}.portrait{max-width:420px;margin:auto}.projectsSection,.experience{padding:70px 18px}.sectionHead{grid-template-columns:1fr;gap:20px}.projectGrid{grid-template-columns:1fr}.projectCard:last-child{grid-column:auto;width:100%}.thumbnail{height:300px}.projectCard>p{min-height:auto}.about{padding:70px 18px;grid-template-columns:1fr}.services{grid-column:auto;grid-template-columns:1fr}.services article{border-right:0}.skills{padding:70px 18px;grid-template-columns:1fr;gap:45px}.job summary{grid-template-columns:30px 42px 1fr 25px}.jobDate{display:none}.jobName b{font-size:19px}.job ul{padding:18px 15px 22px 70px}.cta{padding:70px 18px}.cta>div{flex-direction:column;max-width:320px;margin:auto}footer{height:auto;padding:24px 18px;gap:20px;align-items:flex-start;flex-direction:column}footer div{flex-wrap:wrap}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker>div{animation:none!important}*{transition:none!important}}
+@theme {
+  --color-paper: #eee9dc;
+  --color-ink: #20201d;
+  --color-red: #e94d35;
+  --color-green: #23745d;
+  --color-yellow: #edc84b;
+  --font-display: var(--font-bringbold), Impact, sans-serif;
+  --font-sans: "Trebuchet MS", Verdana, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-mono: "Courier New", monospace;
+  --animate-ticker: ticker 25s linear infinite;
 
-/* Typography refinement: display face for headlines, readable faces for UI and data */
-body{font-size:16px;line-height:1.5}
-html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
-.header{font-size:11px}.brand span{font-size:12px}.eyebrow{font-size:11px}.introTag{font-size:10px}
-.heroActions a{font-size:11px}.portrait figcaption{font-size:9px}.heroFacts span{font-size:10px}
-.ticker span{font-size:11px}
-.sectionHead>div>span,.about header>span,.skillsTitle>span,.cta>span{font-size:10px}
-.sectionHead>p{font-size:16px}.projectTitle h3{font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:700;line-height:1.05}.projectCard>p{font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.55}.projectType{font-size:9px}
-.aboutCopy>p:not(.lead){font-size:15px}.aboutCopy>a{font-size:10px}.services span{font-size:10px}.services h3{font-family:"Trebuchet MS",Verdana,sans-serif;font-size:19px;font-weight:800;line-height:1.15}.services p{font-size:13px}
-.skillList a{font-size:11px}
-.job summary{font-size:11px}.jobName b{font-family:var(--display);font-size:28px;font-weight:400;line-height:1.05;letter-spacing:0}.jobName.bpjsTitle b{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700;letter-spacing:-.02em}.jobName i{font-size:11px}.jobStatus{font-size:10px}.job ul{font-size:13px}
-.cta>p{font-size:11px}.cta a{font-size:10px}footer{font-size:10px}
-@media(max-width:650px){.header nav a:before{font-size:10px}.jobName b{font-size:24px}.jobName.bpjsTitle b{font-size:18px}.jobName i{font-size:10px}.portrait figcaption{font-size:9px}}
+  @keyframes ticker {
+    to { transform: translateX(-50%); }
+  }
+}
 
-/* Keep compact UI text readable on high-density and smaller displays */
-.projectType,.services span,.jobStatus,.portrait figcaption{line-height:1.35;letter-spacing:.03em}
-@media(max-width:430px){.sectionHead>div>span,.about header>span,.skillsTitle>span,.cta>span,.projectType{font-size:10px}.job summary{font-size:10px}}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const bringbold = localFont({
-  src: "../assets/fonts/Bringbold Nineties Demo.otf",
+  src: "../assets/fonts/bringbold-nineties.otf",
   variable: "--font-bringbold",
   display: "swap",
 });
@@ -14,5 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="en" className={bringbold.variable}><body>{children}</body></html>;
+  return (
+    <html lang="en" className={bringbold.variable}>
+      <body>{children}</body>
+    </html>
+  );
 }
