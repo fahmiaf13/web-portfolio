@@ -11,7 +11,7 @@ export const experienceDatas = [
     company: "Maybank Sekuritas Indonesia",
     role: "Front-End Developer",
     icon: MaybankLogo,
-    entryDate: "Nov 2023 - Present",
+    entryDate: "May 2026 - Present",
     status: "Contract",
     desc: [
       "Develop and maintain desktop and mobile applications using React.js, Tauri, and React Native.",
@@ -27,7 +27,7 @@ export const experienceDatas = [
     company: "OCBC Bank",
     role: "Front-End Developer",
     icon: OcbcLogo,
-    entryDate: "Feb 2023 - Oct 2023",
+    entryDate: "Nov 2023 - Apr 2026",
     status: "Contract",
     desc: [
       "Developed and maintained web applications using React.js.",
@@ -43,7 +43,7 @@ export const experienceDatas = [
     company: "BPJS Ketenagakerjaan",
     role: "Front-End Developer",
     icon: BpjsLogo,
-    entryDate: "Oct 2022 - Jan 2023",
+    entryDate: "Feb 2023 - Aug 2023",
     status: "Contract",
     desc: [
       "Developed and maintained web applications using Vue.js, Nuxt.js, and Vuetify.",
@@ -59,7 +59,7 @@ export const experienceDatas = [
     company: "Soluvas",
     role: "Front-End Developer",
     icon: SoluvasIcon,
-    entryDate: "Aug 2022 - Nov 2022",
+    entryDate: "Oct 2022 - Jan 2023",
     status: "Contract",
     desc: [
       "Collaborated with Project Managers and designers to develop web applications using TypeScript, React.js, Next.js, and Material UI.",
@@ -73,7 +73,7 @@ export const experienceDatas = [
     company: "PT. Sagara Technology",
     role: "Front-End Engineer",
     icon: SagaraIcon,
-    entryDate: "Dec 2020 - Jul 2021",
+    entryDate: "Aug 2022 - Nov 2022",
     status: "Internship",
     desc: [
       "Contributed to internal web application development using React.js and Tailwind CSS.",
@@ -87,7 +87,7 @@ export const experienceDatas = [
     company: "Magprotech",
     role: "Embedded System Engineer",
     icon: MagprotechIcon,
-    entryDate: "",
+    entryDate: "Dec 2020 - Jul 2021",
     status: "Contract",
     desc: [
       "Led the development of an automatic disinfection chamber and automatic fish feeder using Arduino, including software programming and electrical system design.",

@@ -20,7 +20,6 @@ export default function Home() {
       <header className="grid h-[72px] grid-cols-[1fr_1fr_1.2fr_auto] items-center gap-[25px] border-b border-ink px-[3vw] font-mono text-[11px] leading-[1.3] font-bold max-[900px]:grid-cols-[1fr_1fr_auto] max-[650px]:h-[68px] max-[650px]:px-[18px]">
         <a className="flex items-center gap-[10px]" href="#top">
           <Image className="rounded-[5px]" src={Logo} alt="" width={50} height={50} priority />
-          {/* <span className="text-xs max-[650px]:hidden">FAHMI ACHMAD</span> */}
         </a>
         <p className="max-[900px]:hidden">
           FRONT-END DEVELOPER
@@ -209,8 +208,8 @@ export default function Home() {
             <details className="group border-b border-ink" key={job.id}>
               <summary className="grid cursor-pointer list-none grid-cols-[38px_45px_1fr_0.65fr_0.3fr_25px] items-center gap-[15px] px-[5px] py-[17px] font-mono text-[11px] font-bold hover:bg-red/10 max-[900px]:grid-cols-[32px_44px_1fr_0.6fr_25px] max-[650px]:grid-cols-[30px_42px_1fr_25px] max-[430px]:text-[10px]">
                 <span>0{index + 1}</span>
-                <span className="grid size-10 place-items-center border border-ink bg-white p-1.5">
-                  <Image className="h-auto max-h-full w-auto max-w-full" src={job.icon} alt="" />
+                <span className="grid size-10 place-items-center overflow-hidden border border-ink bg-white p-1.5">
+                  <Image className={job.company === "PT. Sagara Technology" ? "block size-5 object-contain" : "block h-auto max-h-full w-auto max-w-full object-contain"} src={job.icon} alt={job.company} />
                 </span>
                 <span className="flex flex-col gap-1">
                   <b
