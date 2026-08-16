@@ -62,7 +62,7 @@ export default function Home() {
             <a className="border-b border-ink pb-[5px]" href="#projects">
               SEE MY WORK ↓
             </a>
-            <a className="border-b border-ink pb-[5px]" href="/CV_Fahmi-Achmad.pdf" target="_blank">
+            <a className="border-b border-ink pb-[5px]" href="https://drive.google.com/file/d/10CzX3I6G8A4UIVZS3hJx03J4va1goJBs/view?usp=sharing" target="_blank">
               DOWNLOAD CV ↗
             </a>
           </div>
