@@ -15,6 +15,7 @@
 
 /* Typography refinement: display face for headlines, readable faces for UI and data */
 body{font-size:16px;line-height:1.5}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 .header{font-size:11px}.brand span{font-size:12px}.eyebrow{font-size:11px}.introTag{font-size:10px}
 .heroActions a{font-size:11px}.portrait figcaption{font-size:9px}.heroFacts span{font-size:10px}
 .ticker span{font-size:11px}
@@ -22,6 +23,10 @@ body{font-size:16px;line-height:1.5}
 .sectionHead>p{font-size:16px}.projectTitle h3{font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:700;line-height:1.05}.projectCard>p{font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.55}.projectType{font-size:9px}
 .aboutCopy>p:not(.lead){font-size:15px}.aboutCopy>a{font-size:10px}.services span{font-size:10px}.services h3{font-family:"Trebuchet MS",Verdana,sans-serif;font-size:19px;font-weight:800;line-height:1.15}.services p{font-size:13px}
 .skillList a{font-size:11px}
-.job summary{font-size:10px}.jobName b{font-family:var(--display);font-size:22px;font-weight:400;line-height:1;letter-spacing:0}.jobName.bpjsTitle b{font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:700;letter-spacing:-.02em}.jobName i{font-size:10px}.jobStatus{font-size:9px}.job ul{font-size:13px}
+.job summary{font-size:11px}.jobName b{font-family:var(--display);font-size:28px;font-weight:400;line-height:1.05;letter-spacing:0}.jobName.bpjsTitle b{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700;letter-spacing:-.02em}.jobName i{font-size:11px}.jobStatus{font-size:10px}.job ul{font-size:13px}
 .cta>p{font-size:11px}.cta a{font-size:10px}footer{font-size:10px}
-@media(max-width:650px){.header nav a:before{font-size:10px}.jobName b{font-size:19px}.jobName i{font-size:9px}.portrait figcaption{font-size:8px}}
+@media(max-width:650px){.header nav a:before{font-size:10px}.jobName b{font-size:24px}.jobName.bpjsTitle b{font-size:18px}.jobName i{font-size:10px}.portrait figcaption{font-size:9px}}
+
+/* Keep compact UI text readable on high-density and smaller displays */
+.projectType,.services span,.jobStatus,.portrait figcaption{line-height:1.35;letter-spacing:.03em}
+@media(max-width:430px){.sectionHead>div>span,.about header>span,.skillsTitle>span,.cta>span,.projectType{font-size:10px}.job summary{font-size:10px}}
