@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Logo from "@/assets/img/logo.svg";
 import Profile from "@/assets/img/me.png";
-import { ProjectCardsData } from "@/data/ProjectData";
-import { experienceDatas } from "@/data/ExperienceData";
-import { icons, skillsIcon } from "@/data/IconsData";
+import { resolvePortfolioAsset } from "@/lib/portfolio-assets";
+import { getPortfolioData } from "@/lib/portfolio";
+
+export const dynamic = "force-dynamic";
 
 const offers = [
   ["01", "Development", "Responsive websites and web apps built with modern front-end tools."],
@@ -14,7 +15,12 @@ const offers = [
 const sectionLabel = "font-mono text-[10px] font-bold tracking-[0.12em] leading-[1.35]";
 const sectionTitle = "mt-[18px] font-display text-[clamp(42px,5vw,76px)] leading-[0.85]";
 
-export default function Home() {
+export default async function Home() {
+  const { projects, experiences, skills, links, cvUrl } = await getPortfolioData();
+  const githubUrl = links.github?.url ?? "#";
+  const linkedinUrl = links.linkedin?.url ?? "#";
+  const twitterUrl = links.twitter?.url ?? "#";
+
   return (
     <main id="top" className="bg-paper text-ink selection:bg-green selection:text-white">
       <header
@@ -41,7 +47,7 @@ export default function Home() {
             EXPERIENCE
           </a>
         </nav>
-        <a className="border border-ink px-3 py-[10px] shadow-[3px_3px_0_var(--color-red)] max-[650px]:hidden" href={icons.linkedin.link} target="_blank" rel="noreferrer">
+        <a className="border border-ink px-3 py-[10px] shadow-[3px_3px_0_var(--color-red)] max-[650px]:hidden" href={linkedinUrl} target="_blank" rel="noreferrer">
           CONTACT ↗
         </a>
       </header>
@@ -65,7 +71,7 @@ export default function Home() {
             <a className="border-b border-ink pb-[5px]" href="#projects">
               SEE MY WORK ↓
             </a>
-            <a className="border-b border-ink pb-[5px]" href="https://drive.google.com/file/d/10CzX3I6G8A4UIVZS3hJx03J4va1goJBs/view?usp=sharing" target="_blank">
+            <a className="border-b border-ink pb-[5px]" href={cvUrl} target="_blank" rel="noreferrer">
               DOWNLOAD CV ↗
             </a>
           </div>
@@ -107,7 +113,7 @@ export default function Home() {
 
       <div className="overflow-hidden border-y border-ink bg-green py-[11px] whitespace-nowrap text-white">
         <div className="flex w-max animate-ticker motion-reduce:animate-none">
-          {[...skillsIcon.techStack, ...skillsIcon.techStack].map((skill, index) => (
+          {[...skills, ...skills].map((skill, index) => (
             <span className="mr-[25px] font-mono text-[11px] font-bold" key={`${skill.name}-${index}`}>
               {skill.name.toUpperCase()} <i className="ml-[25px] not-italic text-yellow">✦</i>
             </span>
@@ -124,7 +130,7 @@ export default function Home() {
           <p className="m-0 max-w-[500px] font-serif text-base leading-normal">A compact collection of web products developed for companies and organizations.</p>
         </header>
         <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[650px]:grid-cols-1">
-          {ProjectCardsData.map((project, index) => (
+          {projects.map((project, index) => (
             <article
               data-reveal
               style={{ "--reveal-delay": `${index * 90}ms` } as React.CSSProperties}
@@ -135,11 +141,11 @@ export default function Home() {
                 <span className="absolute top-[10px] right-[10px] z-2 grid size-8 place-items-center rounded-full border border-ink bg-yellow font-mono text-[8px] font-bold">0{index + 1}</span>
                 <Image
                   className="h-[88%] w-[92%] object-contain drop-shadow-[7px_8px_0_#20201d30] transition-transform duration-300 group-hover:scale-[1.025] motion-reduce:transition-none"
-                  src={project.img}
+                  src={resolvePortfolioAsset(project.imageKey)}
                   alt={`${project.name} website preview`}
                 />
                 <span className="absolute top-[10px] left-[10px] grid h-8 w-[76px] place-items-center border border-ink bg-white p-[5px]">
-                  <Image className="h-auto max-h-5 w-auto max-w-[65px]" src={project.icon} alt={`${project.name} logo`} />
+                  <Image className="h-auto max-h-5 w-auto max-w-[65px]" src={resolvePortfolioAsset(project.iconKey)} alt={`${project.name} logo`} />
                 </span>
               </a>
               <div className="flex items-center justify-between border-b border-ink px-0.5 py-[14px]">
@@ -148,7 +154,7 @@ export default function Home() {
                   ↗
                 </a>
               </div>
-              <p className="min-h-[72px] font-serif text-sm leading-[1.55] max-[650px]:min-h-0">{project.desc}</p>
+              <p className="min-h-[72px] font-serif text-sm leading-[1.55] max-[650px]:min-h-0">{project.description}</p>
               <span className="font-mono text-[9px] leading-[1.35] font-bold tracking-[0.03em] text-green max-[430px]:text-[10px]">FRONT-END / WEB APPLICATION</span>
             </article>
           ))}
@@ -169,7 +175,7 @@ export default function Home() {
           <p className="text-[15px] leading-[1.65]">
             My focus is building responsive interfaces with thoughtful interaction, maintainable front-end architecture, and close attention to accessibility and performance. I value clarity, curiosity, and work that feels genuinely useful.
           </p>
-          <a className="mt-7 block w-max border-b border-ink pb-[5px] font-mono text-[10px] font-bold" href={icons.linkedin.link} target="_blank" rel="noreferrer">
+          <a className="mt-7 block w-max border-b border-ink pb-[5px] font-mono text-[10px] font-bold" href={linkedinUrl} target="_blank" rel="noreferrer">
             MORE ABOUT ME ↗
           </a>
         </div>
@@ -194,7 +200,7 @@ export default function Home() {
           </h2>
         </div>
         <div data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties} className="border-t border-white">
-          {skillsIcon.techStack.map((skill, index) => (
+          {skills.map((skill, index) => (
             <a className="group grid grid-cols-[35px_1fr_auto] border-b border-white/60 px-[5px] py-[14px] font-mono text-[11px] hover:bg-yellow hover:text-ink" href={skill.link} target="_blank" rel="noreferrer" key={skill.name}>
               <span className="opacity-50">{String(index + 1).padStart(2, "0")}</span>
               <b>{skill.name}</b>
@@ -213,23 +219,29 @@ export default function Home() {
           <p className="m-0 max-w-[500px] font-serif text-base leading-normal">Teams and products that have shaped the way I work.</p>
         </header>
         <div className="border-t border-ink">
-          {experienceDatas.map((job, index) => (
+          {experiences.map((job, index) => (
             <details data-reveal style={{ "--reveal-delay": `${Math.min(index * 55, 220)}ms` } as React.CSSProperties} className="group border-b border-ink" key={job.id}>
               <summary className="grid cursor-pointer list-none grid-cols-[38px_45px_1fr_0.65fr_0.3fr_25px] items-center gap-[15px] px-[5px] py-[17px] font-mono text-[11px] font-bold hover:bg-red/10 max-[900px]:grid-cols-[32px_44px_1fr_0.6fr_25px] max-[650px]:grid-cols-[30px_42px_1fr_25px] max-[430px]:text-[10px]">
                 <span>0{index + 1}</span>
                 <span className="grid size-10 place-items-center overflow-hidden border border-ink bg-white p-1.5">
-                  <Image className={job.company === "PT. Sagara Technology" ? "block size-5 object-contain" : "block h-auto max-h-full w-auto max-w-full object-contain"} src={job.icon} alt={job.company} />
+                  <Image
+                    width={20}
+                    height={20}
+                    className={job.company === "PT. Sagara Technology" ? "block size-5 object-contain" : "block h-auto max-h-full w-auto max-w-full object-contain"}
+                    src={resolvePortfolioAsset(job.iconKey)}
+                    alt={job.company}
+                  />
                 </span>
                 <span className="flex flex-col gap-1">
                   <b className={"font-display text-[28px] leading-[1.05] font-normal tracking-normal max-[650px]:text-2xl"}>{job.company}</b>
                   <i className="text-[11px] not-italic max-[650px]:text-[10px]">{job.role}</i>
                 </span>
-                <span className="max-[650px]:hidden">{job.entryDate}</span>
+                <span className="max-[650px]:hidden">{job.period}</span>
                 <span className="w-max border border-ink p-1 text-[10px] leading-[1.35] tracking-[0.03em] max-[900px]:hidden">{job.status}</span>
                 <span className="text-base transition-transform group-open:rotate-45 motion-reduce:transition-none">＋</span>
               </summary>
               <ul className="m-0 border-t border-dashed border-ink py-[18px] pr-[8vw] pb-6 pl-[110px] text-[13px] leading-[1.55] marker:text-red max-[650px]:pr-[15px] max-[650px]:pb-[22px] max-[650px]:pl-[70px] [&>li+li]:mt-1.5">
-                {job.desc.map((item) => (
+                {job.description.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -243,10 +255,10 @@ export default function Home() {
         <p className="mt-[30px] font-mono text-[11px] font-bold">HAVE A PROJECT OR OPPORTUNITY?</p>
         <h2 className="mt-[25px] mb-[45px] font-display text-[clamp(75px,11vw,170px)] leading-[0.8]">LET&apos;S TALK.</h2>
         <div className="flex justify-center gap-[15px] max-[650px]:mx-auto max-[650px]:max-w-80 max-[650px]:flex-col">
-          <a className="border border-white px-4 py-[13px] font-mono text-[10px] font-bold hover:bg-white hover:text-red" href={icons.linkedin.link} target="_blank" rel="noreferrer">
+          <a className="border border-white px-4 py-[13px] font-mono text-[10px] font-bold hover:bg-white hover:text-red" href={linkedinUrl} target="_blank" rel="noreferrer">
             MESSAGE ON LINKEDIN ↗
           </a>
-          <a className="border border-white px-4 py-[13px] font-mono text-[10px] font-bold hover:bg-white hover:text-red" href={icons.github.link} target="_blank" rel="noreferrer">
+          <a className="border border-white px-4 py-[13px] font-mono text-[10px] font-bold hover:bg-white hover:text-red" href={githubUrl} target="_blank" rel="noreferrer">
             VIEW GITHUB ↗
           </a>
         </div>
@@ -254,9 +266,9 @@ export default function Home() {
       <footer className="flex h-16 items-center justify-between bg-ink px-[3vw] font-mono text-[10px] font-bold text-white max-[650px]:h-auto max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-5 max-[650px]:px-[18px] max-[650px]:py-6">
         <span>© 2026 FAHMI ACHMAD</span>
         <div className="flex gap-[22px] max-[650px]:flex-wrap">
-          <a href={icons.github.link}>GITHUB</a>
-          <a href={icons.linkedin.link}>LINKEDIN</a>
-          <a href={icons.twitter.link}>TWITTER</a>
+          <a href={githubUrl}>GITHUB</a>
+          <a href={linkedinUrl}>LINKEDIN</a>
+          <a href={twitterUrl}>TWITTER</a>
         </div>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
