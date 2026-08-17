@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import AnimationController from "./animation-controller";
 
-const bringbold = localFont({
-  src: "../assets/fonts/bringbold-nineties.otf",
+export const bringbold = localFont({
+  src: "../assets/fonts/bringbold-nineties.ttf",
   variable: "--font-bringbold",
   display: "swap",
 });
