@@ -40,7 +40,7 @@ export const experienceDatas = [
   },
   {
     id: 2,
-    company: "BPJS Ketenagakerjaan",
+    company: "BPJS ketenagakerjaan",
     role: "Front-End Developer",
     icon: BpjsLogo,
     entryDate: "Feb 2023 - Aug 2023",
